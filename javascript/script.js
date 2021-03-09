@@ -1,39 +1,36 @@
-function Ingresar(){
+function Ejecutar(){
 
-    let ID = document.getElementById('ID').value;
-    let Names = document.getElementById('Names').value;
-    let Age = document.getElementById('Age').value;
-    let Email = document.getElementById('Email').value;
-    let Phone = document.getElementById('Phone').value;
-    let Partner = document.getElementById('Partner').value;
-    let Gender = document.getElementById('Gender').value;
+    let nombre1 = document.getElementById('nombre1').value;
+    let nombre2 = document.getElementById('nombre2').value;
+    let age1 = document.getElementById('age1').value;
+    let age2 = document.getElementById('age2').value;
+    let time1 = document.getElementById('time1').value;
+    let time2 = document.getElementById('time2').value;
+
+    let time1int = Number.parseInt(time1);
+    let time2int = Number.parseInt(time2);
 
 
 
-    if (Names === "" || ID === "" || Age === "" || Email === "" || Phone === "" || Partner === "" || Gender === ""){
+    if (nombre1 === "" || nombre2 === "" || age1 === "" || age2 === "" || time1 === "" || time2 === ""){
         swal("Todos los campos son necesarios")
     }
-    else if(Age < 18 || Age > 80){
+    else if(time1int < time2int){
         swal({
-            title: "Lo sentimos",
-            text: "No puede ingresar",
-            icon: "error",
+            text: `Nombre: ${nombre1} \nEdad: ${age1} \nTiempo 1/4 milla: ${time1}`,
+            icon: "success",
           });
     }
-    else if (Age < 80 || Age > 18 && Gender === "Hombre"){
+    else if (time1int > time2int){
         swal({
-            title: "Acceso garantizado",
-            text: "El valor de la entrada es de $30.000",
+            text: `Nombre: ${nombre2} \nEdad: ${age2} \nTiempo 1/4 milla: ${time2}`,
             icon: "success",
-            button: "Aceptar"
           });
     }
-    else if(Age > 18 || Age < 80 && Gender === "Mujer"){
+    else{
         swal({
-            title: "Acceso garantizado",
-            text: "El valor de la entrada es de $25.000",
-            icon: "success",
-            button: "Aceptar"
+            title: "Es un empate",
+            icon: "info",
           });
     }
 }
